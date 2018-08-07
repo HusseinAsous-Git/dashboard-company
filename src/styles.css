@@ -1,0 +1,266 @@
+/* You can add global styles to this file, and also import other style files */
+
+#side-bar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 30;
+    width: 270px;
+    overflow-y: auto;
+  }
+  
+  #side-bar h1 {
+    font-size: 45px;
+  }
+  
+  h1 .fa {
+    font-size: 20px;
+  }
+  .fa{
+    color: #00b7cb;
+  }
+ 
+  h3 {
+    color: #00b7cb;
+  }
+  
+  #side-bar::-webkit-scrollbar {
+    width: 2px;
+    background: none;
+  }
+  
+  #side-bar::-webkit-scrollbar-track {
+    border-radius: 5px;
+  }
+  
+  #side-bar::-webkit-scrollbar-track-piece {
+    background: transparent;
+  }
+  
+  #side-bar::-webkit-scrollbar-thumb {
+    width: 5px;
+    border-radius: 5px;
+    background: rgba(4, 162, 179, 0.8);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  #side-bar::-webkit-scrollbar-thumb:hover {
+    background: rgba(4, 162, 179, 1);
+    transition: all 0.3s ease-in-out;
+  }
+  .breadcrumb{
+    background-color: white
+  }
+  .breadcrumb-item a {
+    text-decoration: none;
+    color: #00b7cb;
+  }
+
+  
+.list-group .list-group-item {
+  border-radius: 0 !important;
+  color: #aaa;
+}
+
+.list-group .list-group-item.active {
+  background: #04a2b3 !important;
+  border: solid 1px #04a2b3;
+  color: white;
+}
+
+.list-group .list-group-item .badge {
+  background: #00b7cb;
+}
+
+.nav-item.active i {
+  color: #00b7cb !important;
+}
+
+.list-group .list-group-item .fa,
+h1 {
+  font-size: 1.25rem;
+  position: relative;
+  padding-right: 5px;
+}
+
+.list-group .list-group-item-action:hover {
+  background: rgba(4, 162, 179, 0.7);
+  color: white !important;
+}
+
+.list-group-item {
+  background: rgba(4, 162, 179, 0.6);
+  color: rgba(255, 255, 255, 0.60);
+  padding-left: 40px !important;
+  font-weight: 500;
+  transition: all 0.2s ease-in;
+}
+
+ .list-group-item:hover {
+  background: rgba(4, 162, 179, 1);
+  color: rgba(255, 255, 255) !important;
+  border-bottom: solid 1.3px rgba(4, 162, 179, 0.7);
+  transition: all 0.2s ease-in;
+  /* background-color : #222; */
+}
+
+ .list-group-item {
+  background: rgba(4, 162, 179, 0.6);
+  color: rgba(255, 255, 255, 0.60);
+  padding-left: 40px !important;
+  font-weight: 500;
+  transition: all 0.2s ease-in;
+}
+
+ .list-group-item:hover {
+  background: rgba(4, 162, 179, 1);
+  color: rgba(255, 255, 255) !important;
+  border-bottom: solid 1.3px rgba(4, 162, 179, 0.7);
+  transition: all 0.2s ease-in;
+  /* background-color : #222; */
+}
+
+.alert-ball {
+  position: static;
+  top: 7px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  z-index: 0;
+  background-color: crimson;
+  border-radius: 100%;
+}
+
+/* .navbar-nav .nav-item {
+   border-radius: 100%;
+   border: solid 2px white;
+   width: 40px;
+   height: 40px;
+   margin: 5px;
+} */
+
+.navbar-nav .nav-link {
+  position: relative;
+}
+
+
+.progress {
+  height: 8px;
+  border-radius: 4px;
+}
+
+.table-hover tbody tr:hover {
+  background: rgba(4, 162, 179, 0.7) !important;
+  color: white;
+}
+
+/* ================================================================ */
+
+/* login frame */
+
+
+
+
+
+
+.input-group-addon {
+  border-color: rgba(255, 255, 255, 0.8);
+  border-left: none;
+  background: rgba(0, 0, 0);
+  padding: inherit 15px;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  color: white;
+}
+
+a {
+  cursor: pointer;
+}
+
+.form-group label {
+  font-size: 18px;
+  font-weight: 500;
+  color: #00b7cb;
+  opacity: 0.8;
+}
+
+/* .input-group .form-control,
+.form-control:visited {
+  border-color: rgba(255, 255, 255, 0.8);
+  border-right: none;
+  background: rgba(0, 0, 0);
+  color: white;
+} */
+
+.form-control:focus {
+  border-color: #00b7cb !important;
+  color: #00b7cb;
+}
+
+.form-control:focus+.input-group-addon {
+  border-color: #00b7cb;
+  color: #00b7cb;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+
+
+
+.link-green:hover {
+  color: #04a2b3;
+  text-decoration: none;
+}
+
+
+
+
+.ng-invalid {
+  color: red;
+}
+
+/* add new activity form  */
+
+
+
+/* 
+label {
+  padding-top: 10px;
+}
+
+.control {
+  text-align: center;
+} */
+
+.btn-edit {
+  
+  border-color: #00b7cb;
+  color: #00b7cb !important;
+  border: 2px solid #00b7cb; 
+  transition: all ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.btn-edit:hover {
+  background: white;
+  border-color: #00b7cb;
+  color: #00b7cb !important;
+}
+
+.avilable{
+  color:green;
+}
+
+.card{
+  width: 500px
+}
+.txt-color{
+  color:#96c2c7 ;
+}
+
+.card-h {
+  font-weight: 500
+}
+.card-content{
+  color:grey;
+}
+
+.alert{
+  display:none;
+}
