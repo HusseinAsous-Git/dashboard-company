@@ -21,6 +21,10 @@ import { SchoolProfileService } from './services/school.profile.service';
 import { SchoolHomeComponent } from './core/school-home/school-home.component';
 import { SchoolHeaderComponent } from './core/school-header/school-header.component';
 import { SchoolSidebarComponent } from './core/school-sidebar/school-sidebar.component';
+import { SchoolProfileComponent } from './core/school-profile/school-profile.component';
+import { SchoolFollowersComponent } from './core/school-followers/school-followers.component';
+import { SchoolOrdersComponent } from './core/school-orders/school-orders.component';
+import { SchoolOrdersHistoryComponent } from './core/school-orders-history/school-orders-history.component';
 
 
 @NgModule({
@@ -36,7 +40,11 @@ import { SchoolSidebarComponent } from './core/school-sidebar/school-sidebar.com
     OfferEditComponent,
     SchoolHomeComponent,
     SchoolHeaderComponent,
-    SchoolSidebarComponent
+    SchoolSidebarComponent,
+    SchoolProfileComponent,
+    SchoolFollowersComponent,
+    SchoolOrdersComponent,
+    SchoolOrdersHistoryComponent
     ],
     providers:[
         CompanyService,

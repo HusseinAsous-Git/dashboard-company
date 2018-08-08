@@ -13,15 +13,21 @@ import { Router, ActivatedRoute } from '../../../../node_modules/@angular/router
 export class OffersComponent implements OnInit {
 
   constructor(private companyService: CompanyService, private router:Router, private activatedRoute:ActivatedRoute) { }
-
+  isloading: boolean = true;
   public companyOffers : CompanyOfferModel []=[] ;
 
   ngOnInit() {
+    this.isloading = true;
     this.companyService.seeAllOffers().subscribe(
       (response) => {
+        
+        if(response){
+          this.isloading = false;
         console.log("Response: " + response)
         this.companyOffers = response;
+
         console.log(this.companyOffers);
+        }
       },
       (err) => console.log("Error: " + err)
     );

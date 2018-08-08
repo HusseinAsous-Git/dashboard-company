@@ -19,4 +19,15 @@ getOrders(companyId: number){
         return this.httpClient.get<SchoolOrdersModel []>(url); 
 }
 
+getProfile(id: number) {
+    let url = `${environment.apiPath}school/profile/get/${id}`;
+    return this.httpClient.get<SchoolProfileModel>(url);
+}
+
+
+updateProfile(data: SchoolProfileModel) {
+    let url = `${environment.apiPath}school/profile/update`; 
+    return this.httpClient.put<SchoolProfileModel>(url,data) ;
+}
+
 }

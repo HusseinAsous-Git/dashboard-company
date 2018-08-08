@@ -15,7 +15,8 @@ export class NewOfferComponent implements OnInit {
   base64textString = [];
 hash = [];
   newOffer: FormGroup;
-
+  sizeArray  =  [];
+  size;
    constructor(private companyService: CompanyService, private router: Router ) { }
 
   ngOnInit() {
@@ -39,15 +40,21 @@ hash = [];
   
     if (file) {
       const reader = new FileReader();
-  
+      
+      if(!isNaN(file.size)){
+        this.sizeArray.push(file.size);
+      }
+
       reader.onload = this.handleReaderLoaded.bind(this);
       reader.readAsBinaryString(file);
     }
+   
   }
   
   handleReaderLoaded(e) {
     this.hash.push( btoa(e.target.result));
     this.base64textString.push('data:image/png;base64,' + btoa(e.target.result));
+    this.sizeArray.push(btoa(e.target.size));
   }
 
 
@@ -82,12 +89,15 @@ hash = [];
     
     // console.log("Image is of type : " + typeof(this.base64textString))
     
-    console.log('title: ' + offer.offer_title)
+    for(let el of this.sizeArray){
+      console.log("Size" + el);
+    }
 
     this.companyService.addOffer(offer).subscribe(
       (response) => {
+        console.log("size is: " + this.size + "is of type"+ typeof(this.size))
         console.log(response);
-        
+        console.log(this.newOffer)
         this.router.navigate(['/offers/see']);
       }
       ,(err) => console.log(err)

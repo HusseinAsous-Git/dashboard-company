@@ -16,12 +16,15 @@ export class ProfileComponent implements OnInit {
   private activeProfile : CompanyProfileModel ;
 
   private currentProfile: CompanyOfferModel [];
-
-
+logoSize: number; 
+coverSize;
   srcLogo: string;
   srcCover: string;
   hashLogo: string;
   hashCover: string
+  enableMessage = false;
+  logoSizeIsValid : boolean = true;
+  coverSizeIsValid: boolean = true;
 
   constructor(private profileService: ProfileService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
@@ -50,8 +53,8 @@ export class ProfileComponent implements OnInit {
         console.log(this.activeProfile)
 
         this.profileForm = new FormGroup({
-          'companyName': new FormControl(this.activeProfile.company_name, Validators.required),
-          'link': new FormControl(this.activeProfile.company_link_youtube, Validators.required),
+          'companyName': new FormControl(this.activeProfile.company_name, [Validators.required,Validators.minLength(3)]),
+          'link': new FormControl(this.activeProfile.company_link_youtube, [Validators.required, Validators.minLength(22)]),
           'phone': new FormControl(this.activeProfile.company_phone_number, Validators.required),
           'address': new FormControl(this.activeProfile.company_address, Validators.required),
           'website': new FormControl(this.activeProfile.company_website_url, Validators.required)
@@ -69,12 +72,18 @@ export class ProfileComponent implements OnInit {
   }
     onUploadChange(evt: any) {
       const file = evt.target.files[0];
-    
+    this.logoSize = file.size;
       if (file) {
         const reader = new FileReader();
     
         reader.onload = this.handleReaderLoaded.bind(this);
         reader.readAsBinaryString(file);
+
+        if(this.logoSize > 2097152){
+        this.logoSizeIsValid = false;
+        }else {
+          this.logoSizeIsValid = true;
+        }
       }
     }
     
@@ -86,16 +95,22 @@ export class ProfileComponent implements OnInit {
   
     onUploadChangeCover(evt: any) {
       const file = evt.target.files[0];
-    
+      this.coverSize = file.size;
       if (file) {
         const reader = new FileReader();
     
         reader.onload = this.handleReaderLoadedCover.bind(this);
         reader.readAsBinaryString(file);
+        if(this.coverSize >2097152 ){
+        this.coverSizeIsValid = false;
+        }else{
+          this.coverSizeIsValid = true;
+        }
+
       }
     }
 
-
+    //2097152
     handleReaderLoadedCover(e) {
      this.hashCover =  btoa(e.target.result);
       this.srcCover = 'data:image/png;base64,' + btoa(e.target.result);
@@ -116,6 +131,11 @@ export class ProfileComponent implements OnInit {
       //   'cover': new FormControl(this.hashCover, Validators.required)
       // });
 
+
+      if(!this.logoSizeIsValid || !this.coverSizeIsValid){
+          this.enableMessage = true;
+          return ;
+      }
 
       
       let data  = {

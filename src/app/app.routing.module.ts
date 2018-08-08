@@ -1,3 +1,4 @@
+import { SchoolFollowersComponent } from './core/school-followers/school-followers.component';
 import { ProfileResolver } from './services/profle.resolver';
 import { FollowersComponent } from './core/followers/followers.component';
 import { ProfileComponent } from './core/profile/profile.component';
@@ -12,6 +13,9 @@ import { MyOrdersComponent } from './core/my-orders/my-orders.component';
 import { OfferEditComponent } from './core/offer-edit/offer-edit.component';
 import { OfferResolver } from './services/offer.resolver.service';
 import { SchoolHomeComponent } from './core/school-home/school-home.component';
+import { SchoolOrdersComponent } from './core/school-orders/school-orders.component';
+import { SchoolOrdersHistoryComponent } from './core/school-orders-history/school-orders-history.component';
+import { SchoolProfileComponent } from './core/school-profile/school-profile.component';
 
 
 
@@ -29,7 +33,12 @@ const appRoutes : Routes = [
 
 
     ]},
-    {path:'school', component:SchoolHomeComponent}
+    {path:'school', component:SchoolHomeComponent, children: [
+        {path:'followers', component:SchoolFollowersComponent},
+        {path:'orders', component:SchoolOrdersComponent},
+        {path:'history', component:SchoolOrdersHistoryComponent},
+        {path:'profile', component:SchoolProfileComponent},
+    ]}
 ]
 
 @NgModule({

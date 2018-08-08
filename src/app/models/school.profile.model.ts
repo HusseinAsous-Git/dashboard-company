@@ -5,8 +5,8 @@ export class SchoolProfileModel {
     school_address: string;
     school_service_desc: string;
     school_link_youtube: string;
-    school_website_url: string;
-    school_lng: number;
-    school_lat: number;   
+    school_website_url: string;   
     school_cover_image: string;
+    //add phone number
+    school_phone_number: string;
 }

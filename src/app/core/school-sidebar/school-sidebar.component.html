@@ -14,14 +14,18 @@
 
           <div class="list-group ">
               <a  class=" pl-4 list-group-item list-group-item-action" 
-                  [routerLink]="['/']">
+                  [routerLink]="['/school']"
+                  routerLinkActive="active"
+                  [routerLinkActiveOptions]={exact:true}>
                   <i class="fa fa-fort-awesome pr-3"></i> Dashboard
               </a>
              
               <!-- <a href="#" class=" pl-4 list-group-item  list-group-item-action">
                   <i class="fa fa-group pr-3"></i> Memebers
               </a> -->
-              <a  href="#trenders"  data-toggle ="collapse" class=" pl-4 list-group-item list-group-item-action">
+              <a  href="#trenders"  data-toggle ="collapse" 
+              class=" pl-4 list-group-item list-group-item-action" 
+              routerLinkActive="active" [routerLinkActiveOptions]={exact:true}>
                 <i class="fa fa-calendar pr-3"></i> Trenders
                 <span class="d-inline-block mt-1 float-right ">
                     <i class="fa fa-caret-down"></i>
@@ -30,28 +34,31 @@
             <div class="collapse" id="trenders">
                <div class="list-group">
                 <a  class="list-group-item list-group-item-action"
-                
+                routerLinkActive="active"
                 >
                         Trenders <i class="fa fa-plus pull-right"></i>
                 </a>
-                <a  class="list-group-item list-group-item-action">
+                <a  class="list-group-item list-group-item-action" routerLinkActive="active">
                     collective trenders <i class="fa fa-eye pull-right"></i>
                 </a>
-                <a  class="list-group-item list-group-item-action">
+                <a  class="list-group-item list-group-item-action" routerLinkActive="active">
                   Create a trender <i class="fa fa-eye pull-right"></i>
               </a>
               
                </div>
             </div>
-            <a  class=" pl-4 list-group-item list-group-item-action"
-            >
+            <a  class=" pl-4 list-group-item list-group-item-action" [routerLink]="['/school','profile']"
+            routerLinkActive="active">
                 <i class="fa fa-user pr-3"></i> My Profile
             </a>
             <a  class=" pl-4 list-group-item list-group-item-action"
-           >
+             [routerLink]="['/school','followers']" routerLinkActive="active">
                 <i class="fa fa-user pr-3"></i> Followers <span class="badge badge-primary badge-pill pull-right">14</span>
             </a>
-            <a  href="#orders"  data-toggle ="collapse" class=" pl-4 list-group-item list-group-item-action">
+            <a  href="#orders" 
+             data-toggle ="collapse" 
+             class=" pl-4 list-group-item list-group-item-action" 
+             routerLinkActive="active" [routerLinkActiveOptions]={exact:true}>
               <i class="fa fa-calendar pr-3"></i> Orders
               <span class="d-inline-block mt-1 float-right ">
                   <i class="fa fa-caret-down"></i>
@@ -60,11 +67,14 @@
           <div class="collapse" id="orders">
              <div class="list-group">
               <a  class="list-group-item list-group-item-action"
-              
+              routerLinkActive="active"
+              [routerLink]="['/school','orders']"
               >
                       My orders <i class="fa fa-plus pull-right"></i>
               </a>
-              <a  class="list-group-item list-group-item-action">
+              <a  class="list-group-item list-group-item-action"
+              [routerLink]="['/school','history']"
+               routerLinkActive="active">
                   History <i class="fa fa-eye pull-right"></i>
               </a>
              
