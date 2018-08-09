@@ -1,6 +1,6 @@
 export class SchoolOrdersModel{
-    company_id: number;
-    request_offer_count: number;
-    offer_title: string;
-    offer_cost: number;
+    request_id: number;
+    request_count: number;
+    request_title: string;
+    request_display_date: number;
 }

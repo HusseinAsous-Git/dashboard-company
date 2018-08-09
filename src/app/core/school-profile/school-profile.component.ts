@@ -22,7 +22,11 @@ export class SchoolProfileComponent implements OnInit {
   srcCover: string;
   hashLogo: string;
   hashCover: string
-
+  enableMessage = false;
+  logoSizeIsValid : boolean = true;
+  coverSizeIsValid: boolean = true;
+  logoSize: number; 
+  coverSize: number;
   constructor(private schoolSerivce: SchoolService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
@@ -52,8 +56,8 @@ export class SchoolProfileComponent implements OnInit {
         console.log(this.activeProfile)
 
         this.SchoolProfileForm = new FormGroup({
-          'schoolName': new FormControl(this.activeProfile.school_name, Validators.required),
-          'link': new FormControl(this.activeProfile.school_link_youtube, Validators.required),
+          'schoolName': new FormControl(this.activeProfile.school_name, [Validators.required,Validators.minLength(3)]),
+          'link': new FormControl(this.activeProfile.school_link_youtube,[Validators.required, Validators.minLength(22)]),
           'phone': new FormControl(this.activeProfile.school_phone_number, Validators.required),
           'address': new FormControl(this.activeProfile.school_address, Validators.required),
           'website': new FormControl(this.activeProfile.school_website_url, Validators.required),
@@ -72,12 +76,17 @@ export class SchoolProfileComponent implements OnInit {
   }
     onUploadChange(evt: any) {
       const file = evt.target.files[0];
-    
+      this.logoSize = file.size;
       if (file) {
         const reader = new FileReader();
     
         reader.onload = this.handleReaderLoaded.bind(this);
         reader.readAsBinaryString(file);
+        if(this.logoSize > 2097152){
+          this.logoSizeIsValid = false;
+          }else {
+            this.logoSizeIsValid = true;
+          }
       }
     }
     
@@ -89,12 +98,17 @@ export class SchoolProfileComponent implements OnInit {
   
     onUploadChangeCover(evt: any) {
       const file = evt.target.files[0];
-    
+      this.coverSize = file.size;
       if (file) {
         const reader = new FileReader();
     
         reader.onload = this.handleReaderLoadedCover.bind(this);
         reader.readAsBinaryString(file);
+        if(this.coverSize >2097152 ){
+          this.coverSizeIsValid = false;
+          }else{
+            this.coverSizeIsValid = true;
+          }
       }
     }
 

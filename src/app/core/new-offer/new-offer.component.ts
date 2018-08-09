@@ -17,6 +17,7 @@ hash = [];
   newOffer: FormGroup;
   sizeArray  =  [];
   size;
+  sizeIsValid: boolean  = true;
    constructor(private companyService: CompanyService, private router: Router ) { }
 
   ngOnInit() {
@@ -37,16 +38,27 @@ hash = [];
 
   onUploadChange(evt: any) {
     const file = evt.target.files[0];
-  
+    this.size = file.size;
     if (file) {
       const reader = new FileReader();
-      
-      if(!isNaN(file.size)){
-        this.sizeArray.push(file.size);
-      }
 
+
+      if(this.size >1000000 ){
+        this.sizeIsValid = false;
+        }else{
+          this.sizeIsValid = true;
+        }
+
+        if(this.sizeIsValid){
       reader.onload = this.handleReaderLoaded.bind(this);
       reader.readAsBinaryString(file);
+        }else{
+          return ;
+        }
+
+
+    
+
     }
    
   }
@@ -54,7 +66,7 @@ hash = [];
   handleReaderLoaded(e) {
     this.hash.push( btoa(e.target.result));
     this.base64textString.push('data:image/png;base64,' + btoa(e.target.result));
-    this.sizeArray.push(btoa(e.target.size));
+    // this.sizeArray.push(btoa(e.target.size));
   }
 
 

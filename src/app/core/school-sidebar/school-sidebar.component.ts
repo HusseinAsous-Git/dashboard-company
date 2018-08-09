@@ -1,3 +1,4 @@
+import { SchoolService } from './../../services/school.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SchoolSidebarComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private schoolService: SchoolService) { }
+  orderCount = 0;
+  historyCount = 0;
   ngOnInit() {
+    this.schoolService.getSchoolOrders(4).subscribe(
+      response => {
+        for(let r of response) {
+          this.orderCount ++;
+        }
+      }
+    )
+    this.schoolService.getHistory(4).subscribe(
+      response => {
+        for(let r of response) {
+          this.historyCount ++;
+        }
+      }
+    )
   }
 
 }

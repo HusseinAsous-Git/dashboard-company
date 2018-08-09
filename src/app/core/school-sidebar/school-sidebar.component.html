@@ -26,7 +26,7 @@
               <a  href="#trenders"  data-toggle ="collapse" 
               class=" pl-4 list-group-item list-group-item-action" 
               routerLinkActive="active" [routerLinkActiveOptions]={exact:true}>
-                <i class="fa fa-calendar pr-3"></i> Trenders
+                <i class="fa fa-calendar pr-3"></i> Tenders
                 <span class="d-inline-block mt-1 float-right ">
                     <i class="fa fa-caret-down"></i>
                 </span>
@@ -36,13 +36,13 @@
                 <a  class="list-group-item list-group-item-action"
                 routerLinkActive="active"
                 >
-                        Trenders <i class="fa fa-plus pull-right"></i>
+                        Tenders <i class="fa fa-plus pull-right"></i>
                 </a>
                 <a  class="list-group-item list-group-item-action" routerLinkActive="active">
-                    collective trenders <i class="fa fa-eye pull-right"></i>
+                    Collective tenders <i class="fa fa-eye pull-right"></i>
                 </a>
                 <a  class="list-group-item list-group-item-action" routerLinkActive="active">
-                  Create a trender <i class="fa fa-eye pull-right"></i>
+                  Create a tender <i class="fa fa-eye pull-right"></i>
               </a>
               
                </div>
@@ -70,14 +70,14 @@
               routerLinkActive="active"
               [routerLink]="['/school','orders']"
               >
-                      My orders <i class="fa fa-plus pull-right"></i>
+                      My orders <span class="badge badge-primary badge-pill pull-right">{{ orderCount }}</span>
               </a>
               <a  class="list-group-item list-group-item-action"
               [routerLink]="['/school','history']"
                routerLinkActive="active">
-                  History <i class="fa fa-eye pull-right"></i>
+                  History <span class="badge badge-primary badge-pill pull-right">{{ historyCount +1 }}</span>
               </a>
-             
+              
             
              </div>
           </div>

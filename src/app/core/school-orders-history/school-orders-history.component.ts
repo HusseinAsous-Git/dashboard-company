@@ -1,3 +1,5 @@
+import { SchoolHistoryModel } from './../../models/school.history.model';
+import { SchoolService } from './../../services/school.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SchoolOrdersHistoryComponent implements OnInit {
 
-  constructor() { }
+  private schoolHistory : SchoolHistoryModel [];
+  count = 0;
+  constructor(private schoolService: SchoolService) { }
 
   ngOnInit() {
+
+    this.schoolService.getHistory(4).subscribe(
+      response => {
+        this.schoolHistory = response;
+        console.log(response);
+
+        for(let h of this.schoolHistory){
+          this.count ++;
+        }
+      }
+    )
   }
 
 }

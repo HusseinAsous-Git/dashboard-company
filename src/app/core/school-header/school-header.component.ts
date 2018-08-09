@@ -1,3 +1,4 @@
+import { SchoolService } from './../../services/school.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SchoolHeaderComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private schoolService: SchoolService) { }
+name : string;
   ngOnInit() {
+
+    this.schoolService.getProfile(4).subscribe(
+      response => {
+       this.name =  response.school_name;
+      }
+    )
   }
 
 }

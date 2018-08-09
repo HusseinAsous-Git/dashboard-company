@@ -84,15 +84,18 @@
          (change)="onUploadChange($event)"
          accept=".png, .jpg, .jpeg">
          <div class="row">
-           <div class="col-xs-12">
-            <img *ngFor="let item of base64textString" src={{item}} alt="" id="img">
+           <div class="col-xs-6">
+            <img *ngFor="let item of base64textString" src={{item}} alt="" id="img" width="400" height="400">
+            
+              <span 
+              *ngIf="!sizeIsValid"
+              class="help-block" style="color: red">Image shouldn't be over 2 MB!</span>
+          
            </div>
          </div>
          
       </div>
-      <span 
-      *ngIf="!newOffer.valid && newOffer.touched"
-      class="help-block" >Image shouldn't be over 2 MB!</span>
+     
 
       <div class="pull-right">
         <button class="btn btn-success ml-2 " type="submit">Add</button>

@@ -1,3 +1,5 @@
+import { SchoolOrdersModel } from './../../models/school.orders.model';
+import { SchoolService } from './../../services/school.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SchoolOrdersComponent implements OnInit {
 
-  constructor() { }
+  private schoolOrders : SchoolOrdersModel [];
+  count = 0;
+  constructor(private schoolService: SchoolService) { }
 
   ngOnInit() {
+    this.schoolService.getSchoolOrders(4).subscribe(
+      response => {
+        
+        console.log(response)
+        this.schoolOrders = response;
+
+        for(let o of this.schoolOrders){
+          this.count ++;
+        }
+        
+       }
+
+       
+    )
   }
 
 }
